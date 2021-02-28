@@ -1,16 +1,32 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro'
-import {Container} from "@material-ui/core"
+import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
+import { Container, Typography } from "@material-ui/core";
+import 'fontsource-roboto';
 
 class App extends Component {
-  render(){
-    return (
-        <Container component="article" maxWidth="sm">
-          <h1>Formulario de Cadastro</h1>
-            <FormularioCadastro/>
-        </Container>
-    );
-  }
+    render() {
+        return (
+            <Container component="article" maxWidth="sm">
+                <Typography variant="h3" component="h1" align="center">
+                    Formulario de Cadastro
+        </Typography>
+
+                <FormularioCadastro sendData={sendForm} validaCPF={validaCPF}/>
+            </Container>
+        );
+    }
+}
+
+function sendForm(data) {
+    console.log(data);
+}
+
+function validaCPF(cpf) {
+    if (cpf.length !== 11) {
+        return { valido: false, texto: "CPF deve ter 11 digitos." }
+    }else{
+        return { valido: true, texto: "" }
+    }
 }
 export default App;
