@@ -19,6 +19,7 @@ class App extends Component {
 }
 
 function sendForm(data) {
+    console.log("entrei no sendData");
     console.log(data);
 }
 

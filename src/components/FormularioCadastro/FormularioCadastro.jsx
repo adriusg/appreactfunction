@@ -12,6 +12,7 @@ function FormularioCadastro({ sendData, validaCPF }) {
     return (
         <form onSubmit={(event) => {
             event.preventDefault();
+            console.log(nome);
             sendData({ nome, sobreNome, cpf, promocoes, novidades });
         }}>
 
@@ -56,7 +57,7 @@ function FormularioCadastro({ sendData, validaCPF }) {
                 }
                 } checked={novidades} name="promocnovidadesoes" color="primary" />
             } />
-            <Button variant="contained" color="primary">Cadastrar</Button>
+            <Button type="submit" variant="contained" color="primary">Cadastrar</Button>
         </form>
     );
 }
